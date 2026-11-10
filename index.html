@@ -42,6 +42,36 @@ header strong{font-size:clamp(26px,4.5vw,58px)!important;line-height:.9!importan
 .notice{font-size:13px!important;line-height:1.55!important;color:#555!important;max-width:680px!important;margin-top:60px!important}
 button:focus-visible{outline:3px solid #111!important;outline-offset:4px!important}
 @media(max-width:600px){main{padding:24px 22px 115px!important}.answer{font-size:clamp(118px,32vw,190px)!important}.meta{padding:24px!important}.tabs{justify-content:space-between!important;gap:0!important}.tabs button{padding:12px 14px!important}.kind{margin-bottom:18px!important}.calhead h1{font-size:42px!important}}
+</style><style>
+/* Corrected selectors for the actual HTML; all outlines and dividers removed */
+header,nav,nav button,nav button.active,.detail,.line,hr,.day,.calhead button,.week,.grid{border:0!important;border-top:0!important;border-bottom:0!important;box-shadow:none!important}
+hr{display:none!important}
+header b{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(28px,5vw,58px)!important;line-height:.95!important;letter-spacing:-.08em!important;font-weight:900!important}
+header small{color:#111!important;font-size:12px!important;font-weight:800!important}
+.verdict{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(118px,28vw,340px)!important;line-height:.85!important;letter-spacing:-.105em!important;margin:24px 0 34px!important}
+.verdict span{background:transparent!important}
+.kind{font-size:clamp(32px,6vw,70px)!important;line-height:1!important;letter-spacing:-.07em!important;font-weight:900!important}
+.date{font-weight:800!important}
+.flex{margin-top:56px!important;padding:32px 0!important;background:transparent!important}
+.moon{width:auto!important;height:auto!important;background:transparent!important;font-size:clamp(55px,11vw,110px)!important}
+.kicker{color:#111!important;font-weight:900!important;letter-spacing:.03em!important}
+.big{font-size:clamp(23px,4vw,44px)!important;line-height:1.1!important;letter-spacing:-.06em!important;font-weight:900!important}
+nav{max-width:none!important;justify-content:center!important;gap:clamp(8px,4vw,55px)!important;background:#fff!important;padding:12px 20px max(20px,env(safe-area-inset-bottom))!important}
+nav button{font-weight:900!important;color:#111!important;font-size:clamp(15px,2vw,19px)!important;padding:12px 16px!important}
+nav button.active{background:#d5ff35!important;color:#111!important}
+.calhead{margin-top:65px!important}
+.calhead h1,h1{font-size:clamp(40px,8vw,96px)!important;letter-spacing:-.08em!important;line-height:1!important;font-weight:900!important}
+.calhead button{font-size:clamp(30px,5vw,60px)!important;font-weight:900!important}
+.grid{gap:4px!important}
+.day{height:clamp(60px,10vw,98px)!important;font-size:clamp(18px,2.8vw,32px)!important;font-weight:900!important;letter-spacing:-.05em!important}
+.day.sel{background:#d5ff35!important}
+.dot{width:8px!important;height:8px!important;border-radius:0!important}
+.detail{background:transparent!important;margin-top:52px!important;padding:0!important}
+.detail h2{font-size:clamp(30px,5vw,64px)!important;letter-spacing:-.07em!important;line-height:1!important}
+.line{font-size:clamp(17px,2.5vw,30px)!important;font-weight:900!important;letter-spacing:-.05em!important;padding:22px 0!important}
+.line:nth-of-type(even){background:#d5ff35!important;padding:22px 12px!important}
+.warning{color:#666!important;font-size:12px!important;line-height:1.6!important}
+@media(max-width:600px){main{padding:24px 22px 120px!important}.verdict{font-size:clamp(110px,30vw,190px)!important}.kind{font-size:36px!important}.flex{margin-top:48px!important}nav{justify-content:space-around!important;gap:0!important}nav button{padding:12px 14px!important}}
 </style><main><header><b>WINE DAY</b><small>SEOUL · KST</small></header><section id="today"><div class="date" id="date"></div><div class="verdict"><span id="answer"></span></div><div class="kind" id="kind"></div><div class="desc" id="desc"></div><hr><div class="flex"><div><div class="kicker">MOON PHASE</div><div class="big" id="phase"></div><div class="muted" id="illum"></div></div><div class="moon" id="moon">◐</div></div><hr><div class="kicker">NEXT CHANGE</div><div class="big" id="next"></div><div class="muted" id="time"></div><p class="warning">실험용 천문 근사 모델입니다. 공식 마리아 툰 달력과 일치 검증되지 않았으며, 특수 불리 시간대는 반영하지 않습니다. YES/NO는 음주 권고나 과학적 맛 예측이 아닙니다.</p></section><section id="calendar" hidden><div class="calhead"><button id="prev">‹</button><h1 id="month"></h1><button id="forward">›</button></div><div class="week"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div><div class="grid" id="grid"></div><div class="detail"><div class="kicker" id="chosen"></div><h2 id="chosenKind"></h2><p class="desc" id="chosenDesc"></p></div><p class="warning">날짜별 표시는 한국 시간 정오 기준의 실험적 판정입니다. 하루 중 유형이 바뀔 수 있습니다.</p></section><section id="guide" hidden><h1>달과 와인</h1><p class="desc">달의 위상(초승·보름)과 와인 분류(열매·꽃·잎·뿌리)는 서로 다른 주기를 사용합니다. 와인 분류는 달의 항성황도상 위치를 기반으로 합니다.</p><div class="line"><b>FRUIT · 열매</b>YES</div><div class="line"><b>FLOWER · 꽃</b>YES</div><div class="line"><b>LEAF · 잎</b>NO</div><div class="line"><b>ROOT · 뿌리</b>NO</div><p class="warning">이 버전은 항성황도를 30도씩 나눈 단순 모델입니다. 실제 별자리 경계 및 마리아 툰의 예외 규칙을 구현하지 않았습니다. 과학적으로 와인의 맛을 예측한다고 볼 근거는 충분하지 않습니다.</p></section></main><nav><button class="active" data-tab="today">오늘</button><button data-tab="calendar">캘린더</button><button data-tab="guide">가이드</button></nav><script>
 const rad=Math.PI/180,mod=(n,m)=>((n%m)+m)%m;
 const types=[{name:'FRUIT · 열매의 날',yes:true,desc:'바이오다이내믹 전통에서 과실향을 즐기기 좋은 날로 여깁니다.'},{name:'ROOT · 뿌리의 날',yes:false,desc:'전통적으로 와인의 표현이 둔해진다고 여기는 날입니다.'},{name:'FLOWER · 꽃의 날',yes:true,desc:'전통적으로 섬세한 향을 즐기기 좋은 날로 여깁니다.'},{name:'LEAF · 잎의 날',yes:false,desc:'전통적으로 풍미가 덜 열린다고 여기는 날입니다.'}];
