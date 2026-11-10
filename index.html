@@ -123,4 +123,24 @@ function today(){const t=new Date(),c=category(t),p=phase(t),n=nextChange(t);doc
 const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date());const num=k=>Number(parts.find(p=>p.type===k).value);let y=num('year'),m=num('month')-1,selected=num('day');
 function render(){document.getElementById('month').textContent=y+'년 '+(m+1)+'월';const grid=document.getElementById('grid');grid.replaceChildren();const offset=new Date(Date.UTC(y,m,1)).getUTCDay(),days=new Date(Date.UTC(y,m+1,0)).getUTCDate();for(let i=0;i<offset;i++)grid.append(document.createElement('span'));for(let day=1;day<=days;day++){const b=document.createElement('button'),c=category(new Date(Date.UTC(y,m,day,3)));b.className='day'+(day===selected?' sel':'');b.innerHTML=day+'<div class="dot '+(c.yes?'yes':'')+'"></div>';b.onclick=()=>{selected=day;render()};grid.append(b)}const d=new Date(Date.UTC(y,m,selected,3)),c=category(d);document.getElementById('chosen').textContent=fmt(d,{year:'numeric',month:'long',day:'numeric'});document.getElementById('chosenKind').textContent=(c.yes?'YES · ':'NO · ')+c.name;document.getElementById('chosenDesc').textContent=c.desc}
 document.getElementById('prev').onclick=()=>{m--;if(m<0){m=11;y--}selected=1;render()};document.getElementById('forward').onclick=()=>{m++;if(m>11){m=0;y++}selected=1;render()};document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('section').forEach(s=>s.hidden=s.id!==b.dataset.tab);document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('active',n===b))});today();render();setInterval(today,60000);
-</script></html><style id="navigation-separator">nav{border-top:3px solid #090909!important;box-shadow:none!important}nav button{border:0!important}nav button.active{border:0!important}</style>
+</script></html><style id="navigation-separator">nav{border-top:3px solid #090909!important;box-shadow:none!important}nav button{border:0!important}nav button.active{border:0!important}</style><style id="single-accent-lime">
+/* Monochrome + one fluorescent lime accent */
+:root{--cyan:#d5ff35!important;--pink:#d5ff35!important;--orange:#d5ff35!important;--lime:#d5ff35!important;--ink:#090909!important}
+html,body{background:#fff!important;color:#090909!important}
+.date,.kind,.flex,.calhead,.detail,.line:nth-of-type(4n+1),.line:nth-of-type(4n+2),.line:nth-of-type(4n+3),.line:nth-of-type(4n),#guide h1{background:#fff!important;color:#090909!important}
+.verdict span{background:#d5ff35!important;color:#090909!important}
+.kind{padding:0!important}
+.date{padding:0!important;transform:none!important}
+.flex{padding:32px 0!important}
+.calhead{padding:20px 0!important}
+.detail{padding:32px 0!important}
+.day.sel,nav button.active{background:#d5ff35!important;color:#090909!important}
+.dot{background:#aaa!important}
+.dot.yes{background:#090909!important}
+nav{background:#d5ff35!important;border:0!important;border-top:3px solid #090909!important;box-shadow:none!important}
+nav button{border:0!important;background:transparent!important;color:#090909!important}
+nav button.active{background:#090909!important;color:#d5ff35!important;border:0!important}
+header,.detail,.line,.day,.calhead button{border:0!important;box-shadow:none!important}
+hr{display:none!important}
+@media(max-width:600px){.flex{padding:25px 0!important}.calhead{padding:16px 0!important}}
+</style>
