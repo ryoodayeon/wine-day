@@ -1,117 +1,18 @@
-<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><title>WINE DAY</title><style>*{box-sizing:border-box}body{margin:0;background:#fff;color:#111;font:16px system-ui,-apple-system,sans-serif}main{max-width:520px;margin:auto;padding:28px 25px 110px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding-bottom:24px}header b{font-size:23px;letter-spacing:-1px}small,.muted{color:#666}.date{margin-top:54px}.verdict{font-size:clamp(95px,24vw,150px);font-weight:900;letter-spacing:-9px;line-height:1.2;margin:12px 0}.verdict span{background:#c6ff00}.kind{font-size:30px;font-weight:800;margin:10px 0}.desc{line-height:1.7;color:#444}hr{border:0;border-top:1px solid #ddd;margin:32px 0}.moon{font-size:64px;line-height:1}.flex{display:flex;justify-content:space-between;align-items:center;gap:20px}.kicker{font-size:12px;letter-spacing:1px;color:#777}.big{font-size:20px;font-weight:750;margin-top:8px}.warning{font-size:12px;line-height:1.7;color:#777;margin-top:32px}nav{position:fixed;bottom:0;left:0;right:0;max-width:520px;margin:auto;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:16px 0 24px}button{font:inherit;cursor:pointer}nav button{border:0;background:transparent;padding:9px;color:#777}nav button.active{color:#111;font-weight:800;border-bottom:3px solid #c6ff00}section[hidden]{display:none}.calhead{display:flex;align-items:center;justify-content:space-between;margin:42px 0 28px}.calhead button{border:0;background:#fff;font-size:25px}.week,.grid{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:3px}.week{font-size:12px;color:#777;margin-bottom:14px}.day{border:0;background:#fff;height:55px}.day.sel{background:#c6ff00}.dot{height:7px;width:7px;background:#aaa;border-radius:50%;margin:7px auto}.dot.yes{background:#111}.detail{margin-top:32px;border-top:1px solid #ddd;padding-top:24px}h1{font-size:34px;letter-spacing:-1px}.line{display:flex;justify-content:space-between;border-bottom:1px solid #ddd;padding:17px 0}</style><style>
-/* PEW-inspired visual refresh: typography, acid yellow, no borders */
-:root{font-family:Arial,'Helvetica Neue','Apple SD Gothic Neo',sans-serif!important;color:#0a0a0a!important;background:#fff!important}
-body{background:#fff!important}
-main{max-width:1120px!important;padding:28px clamp(20px,5vw,70px) 130px!important}
-header{border:0!important;padding:0!important;align-items:flex-start!important}
-header strong{font-size:clamp(26px,4.5vw,58px)!important;line-height:.9!important;font-weight:950!important;letter-spacing:-.085em!important}
-.sub{font-size:12px!important;color:#111!important;font-weight:800!important;letter-spacing:-.025em!important;text-align:right!important}
-.date{margin-top:clamp(70px,12vh,140px)!important;font-size:clamp(15px,2.4vw,24px)!important;font-weight:800!important;letter-spacing:-.045em!important;color:#111!important}
-.answer{font-size:clamp(132px,29vw,390px)!important;letter-spacing:-.105em!important;line-height:.82!important;margin:18px 0 30px!important;font-weight:950!important}
-.highlight{background:transparent!important;padding:0!important;display:inline!important}
-.kind{font-size:clamp(34px,6vw,76px)!important;letter-spacing:-.075em!important;line-height:1!important;font-weight:950!important;margin:0 0 22px!important}
-.desc{font-size:clamp(16px,2vw,21px)!important;line-height:1.4!important;color:#111!important;max-width:540px!important}
-.rule{border:0!important;height:0!important;margin:50px 0 0!important}
-.meta{background:#d5ff35!important;padding:clamp(24px,5vw,56px)!important;gap:20px!important;align-items:center!important}
-.moon{width:clamp(86px,15vw,160px)!important;height:clamp(86px,15vw,160px)!important;background:#111!important}
-.moon .lit{background:#fff!important}
-.smallhead{font-size:clamp(12px,1.5vw,17px)!important;font-weight:900!important;letter-spacing:-.02em!important;color:#111!important}
-.value{font-size:clamp(23px,4vw,52px)!important;letter-spacing:-.06em!important;line-height:1!important;font-weight:900!important;margin-top:16px!important}
-.next{font-size:clamp(28px,5vw,62px)!important;font-weight:900!important;letter-spacing:-.06em!important;line-height:1!important;margin-top:16px!important}
-.nexttime{font-size:clamp(15px,1.7vw,20px)!important;color:#111!important;line-height:1.4!important;margin-top:14px!important}
-.tabs{border:0!important;max-width:none!important;padding:12px clamp(20px,5vw,70px) max(16px,env(safe-area-inset-bottom))!important;justify-content:flex-start!important;gap:8px!important;background:#d5ff35!important}
-.tabs button{border:0!important;border-radius:0!important;color:#111!important;font-weight:900!important;font-size:clamp(14px,1.5vw,19px)!important;letter-spacing:-.04em!important;padding:13px 20px!important}
-.tabs button.active{border:0!important;background:#111!important;color:#d5ff35!important}
-.calhead{margin-top:clamp(65px,10vh,120px)!important}
-.calhead h1,.guide h1{font-size:clamp(44px,9vw,115px)!important;font-weight:950!important;letter-spacing:-.085em!important;line-height:.9!important}
-.arrow{font-size:clamp(30px,5vw,60px)!important;font-weight:900!important}
-.week{margin:50px 0 10px!important;font-weight:900!important;font-size:clamp(12px,1.6vw,18px)!important;color:#111!important}
-.calendar{gap:4px!important}
-.cell{height:clamp(60px,10vw,105px)!important;font-size:clamp(19px,3vw,36px)!important;font-weight:900!important;letter-spacing:-.06em!important}
-.cell.sel{background:#d5ff35!important}
-.dot{width:9px!important;height:9px!important;border-radius:0!important;background:#bbb!important}
-.dot.yes{background:#111!important}
-.legend{font-weight:800!important;font-size:14px!important;flex-wrap:wrap!important}
-.legend i{border-radius:0!important}
-.detail{border:0!important;background:#d5ff35!important;padding:clamp(25px,5vw,56px)!important;margin-top:40px!important}
-.detail strong{font-size:clamp(30px,6vw,72px)!important;line-height:1!important;letter-spacing:-.07em!important}
-.guide h1{margin-top:clamp(65px,10vh,120px)!important}
-.guide p{font-size:clamp(17px,2vw,23px)!important;line-height:1.45!important;max-width:800px!important;color:#111!important}
-.guide .line{border:0!important;padding:24px 0!important;font-size:clamp(17px,3vw,32px)!important;font-weight:900!important;letter-spacing:-.055em!important}
-.guide .line:nth-of-type(even){background:#d5ff35!important;padding-left:15px!important;padding-right:15px!important}
-.notice{font-size:13px!important;line-height:1.55!important;color:#555!important;max-width:680px!important;margin-top:60px!important}
-button:focus-visible{outline:3px solid #111!important;outline-offset:4px!important}
-@media(max-width:600px){main{padding:24px 22px 115px!important}.answer{font-size:clamp(118px,32vw,190px)!important}.meta{padding:24px!important}.tabs{justify-content:space-between!important;gap:0!important}.tabs button{padding:12px 14px!important}.kind{margin-bottom:18px!important}.calhead h1{font-size:42px!important}}
-</style><style>
-/* Corrected selectors for the actual HTML; all outlines and dividers removed */
-header,nav,nav button,nav button.active,.detail,.line,hr,.day,.calhead button,.week,.grid{border:0!important;border-top:0!important;border-bottom:0!important;box-shadow:none!important}
-hr{display:none!important}
-header b{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(28px,5vw,58px)!important;line-height:.95!important;letter-spacing:-.08em!important;font-weight:900!important}
-header small{color:#111!important;font-size:12px!important;font-weight:800!important}
-.verdict{font-family:Arial,Helvetica,sans-serif!important;font-size:clamp(118px,28vw,340px)!important;line-height:.85!important;letter-spacing:-.105em!important;margin:24px 0 34px!important}
-.verdict span{background:transparent!important}
-.kind{font-size:clamp(32px,6vw,70px)!important;line-height:1!important;letter-spacing:-.07em!important;font-weight:900!important}
-.date{font-weight:800!important}
-.flex{margin-top:56px!important;padding:32px 0!important;background:transparent!important}
-.moon{width:auto!important;height:auto!important;background:transparent!important;font-size:clamp(55px,11vw,110px)!important}
-.kicker{color:#111!important;font-weight:900!important;letter-spacing:.03em!important}
-.big{font-size:clamp(23px,4vw,44px)!important;line-height:1.1!important;letter-spacing:-.06em!important;font-weight:900!important}
-nav{max-width:none!important;justify-content:center!important;gap:clamp(8px,4vw,55px)!important;background:#fff!important;padding:12px 20px max(20px,env(safe-area-inset-bottom))!important}
-nav button{font-weight:900!important;color:#111!important;font-size:clamp(15px,2vw,19px)!important;padding:12px 16px!important}
-nav button.active{background:#d5ff35!important;color:#111!important}
-.calhead{margin-top:65px!important}
-.calhead h1,h1{font-size:clamp(40px,8vw,96px)!important;letter-spacing:-.08em!important;line-height:1!important;font-weight:900!important}
-.calhead button{font-size:clamp(30px,5vw,60px)!important;font-weight:900!important}
-.grid{gap:4px!important}
-.day{height:clamp(60px,10vw,98px)!important;font-size:clamp(18px,2.8vw,32px)!important;font-weight:900!important;letter-spacing:-.05em!important}
-.day.sel{background:#d5ff35!important}
-.dot{width:8px!important;height:8px!important;border-radius:0!important}
-.detail{background:transparent!important;margin-top:52px!important;padding:0!important}
-.detail h2{font-size:clamp(30px,5vw,64px)!important;letter-spacing:-.07em!important;line-height:1!important}
-.line{font-size:clamp(17px,2.5vw,30px)!important;font-weight:900!important;letter-spacing:-.05em!important;padding:22px 0!important}
-.line:nth-of-type(even){background:#d5ff35!important;padding:22px 12px!important}
-.warning{color:#666!important;font-size:12px!important;line-height:1.6!important}
-@media(max-width:600px){main{padding:24px 22px 120px!important}.verdict{font-size:clamp(110px,30vw,190px)!important}.kind{font-size:36px!important}.flex{margin-top:48px!important}nav{justify-content:space-around!important;gap:0!important}nav button{padding:12px 14px!important}}
-</style><style id="pew-palette">
-/* 2022 PEW-inspired saturated festival palette, not an exact brand asset reproduction */
-:root{--cyan:#00c8f8;--pink:#ff2c9c;--orange:#ff5a1f;--lime:#d5ff35;--ink:#090909}
-html,body{background:#fff!important;color:var(--ink)!important}
-header,nav,.detail,.line,.day,.calhead button,hr{border:none!important;box-shadow:none!important}
-hr{display:none!important}
-main{max-width:1120px!important}
-header{padding:0!important}
-header b{font-weight:950!important;letter-spacing:-.085em!important}
-.date{display:table!important;background:var(--cyan)!important;padding:9px 14px!important;color:#090909!important;transform:rotate(-1deg)}
-.verdict{font-size:clamp(125px,29vw,350px)!important;letter-spacing:-.11em!important;line-height:.85!important;margin:30px 0!important}
-.verdict span{background:var(--pink)!important;color:#090909!important;padding:0 .08em .04em 0!important;box-decoration-break:clone}
-.kind{display:table!important;background:var(--orange)!important;padding:12px 17px!important;line-height:1.03!important;font-size:clamp(31px,6vw,70px)!important;letter-spacing:-.065em!important}
-.desc{color:#090909!important;font-weight:600!important}
-.flex{background:var(--cyan)!important;padding:clamp(26px,5vw,56px)!important;margin:55px 0 35px!important}
-.moon{background:transparent!important;color:#090909!important;font-size:clamp(72px,11vw,120px)!important;width:auto!important;height:auto!important}
-.kicker{font-weight:950!important;color:#090909!important}
-.big{color:#090909!important}
-nav{background:var(--pink)!important;border:none!important;max-width:none!important;gap:clamp(6px,3vw,32px)!important;justify-content:center!important;padding:14px 14px max(18px,env(safe-area-inset-bottom))!important}
-nav button{color:#090909!important;font-weight:950!important;border:none!important;padding:12px 17px!important;font-size:clamp(14px,2vw,19px)!important}
-nav button.active{background:var(--lime)!important;color:#090909!important;border:none!important}
-.calhead{background:var(--orange)!important;padding:20px 24px!important}
-.calhead h1{font-size:clamp(38px,7vw,84px)!important;letter-spacing:-.08em!important}
-.calhead button{background:transparent!important;color:#090909!important}
-.week{font-weight:950!important;color:#090909!important}
-.day{font-weight:950!important;font-size:clamp(18px,3vw,32px)!important;height:clamp(62px,9vw,95px)!important;background:#fff!important}
-.day.sel{background:var(--pink)!important}
-.dot{border-radius:0!important;background:var(--cyan)!important;width:9px!important;height:9px!important}
-.dot.yes{background:var(--orange)!important}
-.detail{background:var(--lime)!important;padding:clamp(25px,5vw,52px)!important;margin-top:42px!important}
-.detail h2{font-size:clamp(29px,5vw,58px)!important;letter-spacing:-.07em!important;line-height:1.05!important}
-.line{padding:24px 16px!important;font-weight:950!important;font-size:clamp(17px,2.8vw,31px)!important}
-.line:nth-of-type(4n+1){background:var(--cyan)!important}
-.line:nth-of-type(4n+2){background:var(--pink)!important}
-.line:nth-of-type(4n+3){background:var(--orange)!important}
-.line:nth-of-type(4n){background:var(--lime)!important}
-#guide h1{display:table!important;background:var(--pink)!important;padding:14px 22px!important}
-.warning{color:#555!important;font-size:12px!important;line-height:1.65!important}
-@media(max-width:600px){main{padding:24px 20px 118px!important}.verdict{font-size:clamp(116px,30vw,190px)!important}.kind{font-size:clamp(29px,8vw,42px)!important}.flex{padding:24px!important}.calhead{padding:16px 12px!important}nav{justify-content:space-around!important;gap:0!important}nav button{padding:12px!important}}
-</style><main><header><b>WINE DAY</b><small>SEOUL · KST</small></header><section id="today"><div class="date" id="date"></div><div class="verdict"><span id="answer"></span></div><div class="kind" id="kind"></div><div class="desc" id="desc"></div><hr><div class="flex"><div><div class="kicker">MOON PHASE</div><div class="big" id="phase"></div><div class="muted" id="illum"></div></div><div class="moon" id="moon">◐</div></div><hr><div class="kicker">NEXT CHANGE</div><div class="big" id="next"></div><div class="muted" id="time"></div><p class="warning">실험용 천문 근사 모델입니다. 공식 마리아 툰 달력과 일치 검증되지 않았으며, 특수 불리 시간대는 반영하지 않습니다. YES/NO는 음주 권고나 과학적 맛 예측이 아닙니다.</p></section><section id="calendar" hidden><div class="calhead"><button id="prev">‹</button><h1 id="month"></h1><button id="forward">›</button></div><div class="week"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div><div class="grid" id="grid"></div><div class="detail"><div class="kicker" id="chosen"></div><h2 id="chosenKind"></h2><p class="desc" id="chosenDesc"></p></div><p class="warning">날짜별 표시는 한국 시간 정오 기준의 실험적 판정입니다. 하루 중 유형이 바뀔 수 있습니다.</p></section><section id="guide" hidden><h1>달과 와인</h1><p class="desc">달의 위상(초승·보름)과 와인 분류(열매·꽃·잎·뿌리)는 서로 다른 주기를 사용합니다. 와인 분류는 달의 항성황도상 위치를 기반으로 합니다.</p><div class="line"><b>FRUIT · 열매</b>YES</div><div class="line"><b>FLOWER · 꽃</b>YES</div><div class="line"><b>LEAF · 잎</b>NO</div><div class="line"><b>ROOT · 뿌리</b>NO</div><p class="warning">이 버전은 항성황도를 30도씩 나눈 단순 모델입니다. 실제 별자리 경계 및 마리아 툰의 예외 규칙을 구현하지 않았습니다. 과학적으로 와인의 맛을 예측한다고 볼 근거는 충분하지 않습니다.</p></section></main><nav><button class="active" data-tab="today">오늘</button><button data-tab="calendar">캘린더</button><button data-tab="guide">가이드</button></nav><script>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>WINE DAY</title><style>
+:root{--yes:#b9de52;--no:#b9b9b5;--ink:#171717}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,"Apple SD Gothic Neo",sans-serif}button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid currentColor;outline-offset:3px}section[hidden]{display:none!important}
+#hero{height:100svh;min-height:360px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:white;color:var(--ink)}#wash{position:absolute;left:50%;top:50%;width:120vmax;height:120vmax;margin-left:-60vmax;margin-top:-60vmax;border-radius:50%;background:var(--yes);transform:scale(0);transition:transform .85s cubic-bezier(.2,.7,.15,1)}#hero.ready #wash{transform:scale(3)}#hero-word{position:relative;font-size:clamp(112px,28vw,380px);font-weight:700;letter-spacing:-.035em;line-height:1;opacity:0;transform:translateY(12px);transition:opacity .35s .55s,transform .35s .55s}#hero.ready #hero-word{opacity:1;transform:translateY(0)}#down{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);border:0;background:transparent;color:inherit;font-size:34px;padding:12px 25px}
+.content{max-width:920px;margin:auto;padding:65px clamp(22px,5vw,70px) 90px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em}.headline{font-size:clamp(43px,8vw,90px);font-weight:700;letter-spacing:-.045em;line-height:1;margin:17px 0 26px}.description{font-size:clamp(17px,2.5vw,22px);line-height:1.5;max-width:650px;margin:0 0 45px}.timehead{display:flex;align-items:baseline;justify-content:space-between;gap:15px;flex-wrap:wrap}.timehead small{color:#666}.timeline{display:flex;width:100%;height:32px;margin:18px 0 9px;background:#eee}.timeline div{height:100%;min-width:1px}.ticks{display:flex;justify-content:space-between;font-size:12px;font-weight:700}.periods{margin:22px 0 45px;display:grid;gap:11px}.period{display:flex;align-items:center;gap:12px;font-size:14px}.swatch{width:12px;height:12px;flex:none}.detailgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:45px 0}.value{font-size:clamp(23px,4vw,39px);font-weight:700;letter-spacing:-.035em;margin:12px 0}.muted{color:#666;font-size:14px;line-height:1.5}.warning{font-size:12px;line-height:1.65;color:#666;margin:50px 0 0;max-width:680px}
+nav{position:sticky;bottom:0;z-index:5;display:flex;justify-content:center;gap:clamp(5px,4vw,55px);background:#fff;border-top:3px solid var(--ink);padding:12px 16px max(14px,env(safe-area-inset-bottom))}nav button{border:0;background:transparent;padding:12px 16px;font-weight:700;font-size:clamp(14px,2vw,18px)}nav button.active{background:var(--ink);color:#fff}
+.calhead{display:flex;align-items:center;justify-content:space-between}.calhead button{border:0;background:none;font-size:35px;padding:0 12px}.calhead h2{font-size:clamp(26px,6vw,55px);font-weight:700;letter-spacing:-.04em}.week,.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;text-align:center}.week{margin-top:36px;font-size:12px;font-weight:700}.calendar{margin-top:14px}.day{height:clamp(56px,10vw,90px);border:0;background:white;font-weight:700;font-size:clamp(17px,3vw,27px)}.day.sel{outline:2px solid #171717;outline-offset:-2px}.dot{display:block;width:9px;height:9px;margin:8px auto 0}.chosen{margin-top:38px}.chosen h3{font-size:clamp(28px,5vw,55px);letter-spacing:-.04em}.guide-row{display:flex;justify-content:space-between;gap:15px;padding:22px 0;font-size:clamp(18px,3vw,28px);font-weight:700}
+@media(max-width:600px){.content{padding:55px 22px 75px}#hero-word{font-size:clamp(105px,30vw,230px)}.detailgrid{grid-template-columns:1fr;gap:10px}nav{justify-content:space-around;gap:0}nav button{padding:12px 9px}}
+@media(prefers-reduced-motion:reduce){#wash,#hero-word{transition:none!important}html{scroll-behavior:auto}}
+</style></head><body>
+<section id="hero" aria-label="현재 와인 데이 판정"><div id="wash"></div><div id="hero-word" aria-live="polite">YES</div><button id="down" aria-label="판정 이유 보기">↓</button></section>
+<main id="details" class="content"><section id="today"><div class="eyebrow">WHY?</div><h1 id="kind" class="headline"></h1><p id="desc" class="description"></p><div class="timehead"><div class="eyebrow">TODAY 00:00—24:00</div><small id="date"></small></div><div class="timeline" id="timeline"></div><div class="ticks"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div><div id="periods" class="periods"></div><div class="detailgrid"><div><div class="eyebrow">MOON PHASE</div><div class="value" id="phase"></div><div class="muted" id="illum"></div></div><div><div class="eyebrow">NEXT CHANGE</div><div class="value" id="next"></div><div class="muted" id="time"></div></div></div><p class="warning">실험용 천문 근사 모델입니다. 공식 마리아 툰 달력과 일치 검증되지 않았으며 특수 불리 시간대는 반영하지 않습니다. YES/NO는 음주 권고나 과학적 맛 예측이 아닙니다.</p></section>
+<section id="calendar" hidden><div class="calhead"><button id="prev" aria-label="이전 달">‹</button><h2 id="month"></h2><button id="forward" aria-label="다음 달">›</button></div><div class="week"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div><div class="calendar" id="grid"></div><div class="chosen"><div class="eyebrow" id="chosen"></div><h3 id="chosenKind"></h3><p id="chosenDesc" class="description"></p></div><p class="warning">달력의 색상은 한국 시간 정오 기준 판정입니다. 하루 중 결과가 바뀔 수 있습니다.</p></section>
+<section id="guide" hidden><h1 class="headline">GUIDE</h1><p class="description">달의 위상과 와인 분류는 서로 다른 주기를 사용합니다. 와인 분류는 달의 항성황도상 위치를 기반으로 합니다.</p><div class="guide-row"><span>FRUIT　열매</span><span>YES</span></div><div class="guide-row"><span>FLOWER　꽃</span><span>YES</span></div><div class="guide-row"><span>LEAF　잎</span><span>NO</span></div><div class="guide-row"><span>ROOT　뿌리</span><span>NO</span></div><p class="warning">이 버전은 항성황도를 30도씩 나눈 단순 모델입니다. 실제 별자리 경계와 마리아 툰의 예외 규칙은 구현하지 않았습니다. 와인 맛 예측에 관한 충분한 과학적 근거는 없습니다.</p></section></main>
+<nav><button class="active" data-tab="today">WHY?</button><button data-tab="calendar">CALENDAR</button><button data-tab="guide">GUIDE</button></nav>
+<script>
 const rad=Math.PI/180,mod=(n,m)=>((n%m)+m)%m;
 const types=[{name:'FRUIT · 열매의 날',yes:true,desc:'바이오다이내믹 전통에서 과실향을 즐기기 좋은 날로 여깁니다.'},{name:'ROOT · 뿌리의 날',yes:false,desc:'전통적으로 와인의 표현이 둔해진다고 여기는 날입니다.'},{name:'FLOWER · 꽃의 날',yes:true,desc:'전통적으로 섬세한 향을 즐기기 좋은 날로 여깁니다.'},{name:'LEAF · 잎의 날',yes:false,desc:'전통적으로 풍미가 덜 열린다고 여기는 날입니다.'}];
 function longitude(t){const d=(t-Date.UTC(2000,0,1,12))/86400000,L=mod(218.316+13.176396*d,360),M=mod(134.963+13.064993*d,360),S=mod(357.529+.98560028*d,360),D=mod(297.850+12.190749*d,360),F=mod(93.272+13.229350*d,360);return mod(L+6.289*Math.sin(M*rad)+1.274*Math.sin((2*D-M)*rad)+.658*Math.sin(2*D*rad)+.214*Math.sin(2*M*rad)-.186*Math.sin(S*rad)-.114*Math.sin(2*F*rad),360)}
@@ -119,53 +20,16 @@ function category(t){const y=t.getUTCFullYear()+(t.getUTCMonth()+1)/12,ayanamsa=
 const fmt=(d,opts)=>new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',...opts}).format(d);
 function phase(t){const age=mod((t-Date.UTC(2000,0,6,18,14))/86400000,29.530588853);return {age,illum:(1-Math.cos(age/29.530588853*2*Math.PI))/2}}
 function nextChange(t){const first=category(t);let hi=t.getTime()+3600000;while(hi<t.getTime()+4*86400000&&category(new Date(hi))===first)hi+=3600000;let lo=hi-3600000;for(let i=0;i<24;i++){const mid=(lo+hi)/2;if(category(new Date(mid))===first)lo=mid;else hi=mid}return new Date(hi)}
-function today(){const t=new Date(),c=category(t),p=phase(t),n=nextChange(t);document.getElementById('date').textContent=fmt(t,{year:'numeric',month:'long',day:'numeric',weekday:'long'});document.getElementById('answer').textContent=c.yes?'YES':'NO';document.getElementById('kind').textContent=c.name;document.getElementById('desc').textContent=c.desc;document.getElementById('phase').textContent=p.age<2?'초승 무렵':p.age<7.4?'차오르는 달':p.age<9.3?'상현 무렵':p.age<14.8?'차오르는 달':p.age<16.7?'보름 무렵':p.age<22.2?'기우는 달':p.age<24.2?'하현 무렵':'기우는 달';document.getElementById('illum').textContent='조명률 약 '+Math.round(p.illum*100)+'%';document.getElementById('moon').textContent=p.age<2?'●':p.age<14.8?'◐':'◑';document.getElementById('next').textContent=category(new Date(n.getTime()+60000)).name;document.getElementById('time').textContent=fmt(n,{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false})+' KST (근삿값)'}
-const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date());const num=k=>Number(parts.find(p=>p.type===k).value);let y=num('year'),m=num('month')-1,selected=num('day');
-function render(){document.getElementById('month').textContent=y+'년 '+(m+1)+'월';const grid=document.getElementById('grid');grid.replaceChildren();const offset=new Date(Date.UTC(y,m,1)).getUTCDay(),days=new Date(Date.UTC(y,m+1,0)).getUTCDate();for(let i=0;i<offset;i++)grid.append(document.createElement('span'));for(let day=1;day<=days;day++){const b=document.createElement('button'),c=category(new Date(Date.UTC(y,m,day,3)));b.className='day'+(day===selected?' sel':'');b.innerHTML=day+'<div class="dot '+(c.yes?'yes':'')+'"></div>';b.onclick=()=>{selected=day;render()};grid.append(b)}const d=new Date(Date.UTC(y,m,selected,3)),c=category(d);document.getElementById('chosen').textContent=fmt(d,{year:'numeric',month:'long',day:'numeric'});document.getElementById('chosenKind').textContent=(c.yes?'YES · ':'NO · ')+c.name;document.getElementById('chosenDesc').textContent=c.desc}
-document.getElementById('prev').onclick=()=>{m--;if(m<0){m=11;y--}selected=1;render()};document.getElementById('forward').onclick=()=>{m++;if(m>11){m=0;y++}selected=1;render()};document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('section').forEach(s=>s.hidden=s.id!==b.dataset.tab);document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('active',n===b))});today();render();setInterval(today,60000);
-</script></html><style id="navigation-separator">nav{border-top:3px solid #090909!important;box-shadow:none!important}nav button{border:0!important}nav button.active{border:0!important}</style><style id="single-accent-lime">
-/* Monochrome + one fluorescent lime accent */
-:root{--cyan:#d5ff35!important;--pink:#d5ff35!important;--orange:#d5ff35!important;--lime:#d5ff35!important;--ink:#090909!important}
-html,body{background:#fff!important;color:#090909!important}
-.date,.kind,.flex,.calhead,.detail,.line:nth-of-type(4n+1),.line:nth-of-type(4n+2),.line:nth-of-type(4n+3),.line:nth-of-type(4n),#guide h1{background:#fff!important;color:#090909!important}
-.verdict span{background:#d5ff35!important;color:#090909!important}
-.kind{padding:0!important}
-.date{padding:0!important;transform:none!important}
-.flex{padding:32px 0!important}
-.calhead{padding:20px 0!important}
-.detail{padding:32px 0!important}
-.day.sel,nav button.active{background:#d5ff35!important;color:#090909!important}
-.dot{background:#aaa!important}
-.dot.yes{background:#090909!important}
-nav{background:#d5ff35!important;border:0!important;border-top:3px solid #090909!important;box-shadow:none!important}
-nav button{border:0!important;background:transparent!important;color:#090909!important}
-nav button.active{background:#090909!important;color:#d5ff35!important;border:0!important}
-header,.detail,.line,.day,.calhead button{border:0!important;box-shadow:none!important}
-hr{display:none!important}
-@media(max-width:600px){.flex{padding:25px 0!important}.calhead{padding:16px 0!important}}
-</style><style id="single-accent-blue">
-:root{--cyan:#00C8F8!important;--pink:#00C8F8!important;--orange:#00C8F8!important;--lime:#00C8F8!important;--ink:#090909!important}
-html,body{background:#fff!important;color:#090909!important}
-.date,.verdict span,.kind,.flex,nav,.calhead,.day.sel,.detail,.line:nth-of-type(n),#guide h1{background:#00C8F8!important;color:#090909!important}
-nav{border-top:3px solid #090909!important;box-shadow:none!important}
-nav button{border:0!important;color:#090909!important;background:transparent!important}
-nav button.active{border:0!important;background:#090909!important;color:#fff!important}
-header,.detail,.line,.day,.calhead button,hr{border:0!important;box-shadow:none!important}
-hr{display:none!important}
-.dot{background:#aaa!important}.dot.yes{background:#090909!important}
-</style><style id="restrained-electric-blue">
-html,body{background:#fff!important;color:#090909!important}
-.date{background:transparent!important;padding:0!important;transform:none!important}
-.verdict span{background:#00C8F8!important;color:#090909!important}
-.kind{background:transparent!important;padding:0!important;color:#090909!important}
-.flex{background:#fff!important;padding:0!important;color:#090909!important}
-nav{background:#fff!important;border-top:3px solid #090909!important;box-shadow:none!important}
-nav button{background:transparent!important;color:#090909!important;border:0!important}
-nav button.active{background:#00C8F8!important;color:#090909!important;border:0!important}
-.calhead{background:transparent!important;padding:0!important}
-.day.sel{background:#00C8F8!important}
-.detail{background:transparent!important;padding:0!important}
-.line:nth-of-type(n){background:transparent!important;padding:22px 0!important}
-#guide h1{background:transparent!important;padding:0!important}
-header,.detail,.line,.day,.calhead button{border:0!important;box-shadow:none!important}
-</style>
+
+const YES='#b9de52',NO='#b9b9b5';const el=id=>document.getElementById(id);
+const kstParts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(new Date());const num=k=>Number(kstParts.find(p=>p.type===k).value);let y=num('year'),m=num('month')-1,selected=num('day');
+const label=c=>c.name.replace(' · ',' ').replace('의 날','').replace('열매','FRUIT').replace('뿌리','ROOT').replace('꽃','FLOWER').replace('잎','LEAF').split(' ')[0];
+const clock=d=>fmt(d,{hour:'2-digit',minute:'2-digit',hour12:false});
+function daySegments(t){const k=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Seoul',year:'numeric',month:'numeric',day:'numeric'}).formatToParts(t);const get=n=>Number(k.find(p=>p.type===n).value);const start=Date.UTC(get('year'),get('month')-1,get('day'))-9*3600000,end=start+86400000;const seg=[];let at=start;while(at<end){const c=category(new Date(at));let next=nextChange(new Date(at));let until=Math.min(end,next.getTime());if(until<=at)until=Math.min(end,at+60000);seg.push({start:at,end:until,c});at=until;if(seg.length>30)break}return seg}
+function paint(){const t=new Date(),c=category(t),p=phase(t),n=nextChange(t);const color=c.yes?YES:NO;el('wash').style.background=color;el('hero-word').textContent=c.yes?'YES':'NO';el('kind').textContent=label(c)+' DAY';el('desc').textContent=c.desc;el('date').textContent=fmt(t,{year:'numeric',month:'long',day:'numeric',weekday:'long'});el('phase').textContent=p.age<2?'초승 무렵':p.age<7.4?'차오르는 달':p.age<9.3?'상현 무렵':p.age<14.8?'차오르는 달':p.age<16.7?'보름 무렵':p.age<22.2?'기우는 달':p.age<24.2?'하현 무렵':'기우는 달';el('illum').textContent='조명률 약 '+Math.round(p.illum*100)+'%';el('next').textContent=label(category(new Date(n.getTime()+60000)));el('time').textContent=fmt(n,{month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false})+' KST 근삿값';const segments=daySegments(t);el('timeline').replaceChildren();el('periods').replaceChildren();for(const seg of segments){const bar=document.createElement('div');bar.style.flex=String(seg.end-seg.start);bar.style.background=seg.c.yes?YES:NO;bar.title=clock(new Date(seg.start))+'–'+clock(new Date(seg.end))+' '+(seg.c.yes?'YES':'NO');el('timeline').append(bar);const row=document.createElement('div');row.className='period';const sw=document.createElement('span');sw.className='swatch';sw.style.background=seg.c.yes?YES:NO;const txt=document.createElement('span');txt.textContent=clock(new Date(seg.start))+' – '+(seg.end-seg.start>=86400000?'24:00':seg.end===segments[segments.length-1].end&&seg.end-seg.start<86400000&&seg.end===segments[0].start+86400000?'24:00':clock(new Date(seg.end)))+'　'+(seg.c.yes?'YES':'NO')+'　'+label(seg.c);row.append(sw,txt);el('periods').append(row)}}
+function render(){el('month').textContent=y+'년 '+(m+1)+'월';const grid=el('grid');grid.replaceChildren();const offset=new Date(Date.UTC(y,m,1)).getUTCDay(),days=new Date(Date.UTC(y,m+1,0)).getUTCDate();for(let i=0;i<offset;i++)grid.append(document.createElement('span'));for(let day=1;day<=days;day++){const b=document.createElement('button'),c=category(new Date(Date.UTC(y,m,day,3)));b.className='day'+(day===selected?' sel':'');b.style.background=c.yes?YES:NO;const dot=document.createElement('span');dot.className='dot';dot.style.background='#171717';b.textContent=day;b.append(dot);b.onclick=()=>{selected=day;render()};grid.append(b)}const d=new Date(Date.UTC(y,m,selected,3)),c=category(d);el('chosen').textContent=fmt(d,{year:'numeric',month:'long',day:'numeric'});el('chosenKind').textContent=(c.yes?'YES ':'NO ')+label(c);el('chosenDesc').textContent=c.desc}
+el('prev').onclick=()=>{m--;if(m<0){m=11;y--}selected=1;render()};el('forward').onclick=()=>{m++;if(m>11){m=0;y++}selected=1;render()};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('main section').forEach(s=>s.hidden=s.id!==b.dataset.tab);document.querySelectorAll('nav button').forEach(n=>n.classList.toggle('active',n===b));el('details').scrollIntoView({behavior:'smooth'})});
+el('down').onclick=()=>el('details').scrollIntoView({behavior:'smooth'});
+paint();render();requestAnimationFrame(()=>requestAnimationFrame(()=>el('hero').classList.add('ready')));setInterval(()=>{const prev=el('hero-word').textContent;paint();if(prev!==el('hero-word').textContent){el('hero').classList.remove('ready');requestAnimationFrame(()=>requestAnimationFrame(()=>el('hero').classList.add('ready')))}},60000);
+</script></body></html>
